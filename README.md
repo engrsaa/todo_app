@@ -1,2 +1,2 @@
 # todo_app
-this program saves your to-do list and provides  you basic editing options
+this program saves user to-do list with editing options like - add | delete | update | set priority
