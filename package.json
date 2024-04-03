@@ -1,6 +1,6 @@
 {
   "name": "@engrsaa/todos",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "program about todo list",
   "main": "index.js",
   "type": "module",

@@ -81,7 +81,8 @@ while(editMemoAns){
             titleText='\t Your Updated To-Do Memorandum ';
         }else if(editArrayInquiry.edtInqry === 'Update task'){
             let updatedTask = await inquirer.prompt({name:'udtdTsk',type:'input',message:notification('Edit Task: '),default:taskInquiry.tskInqry});
-            if(newArray.some(arrayValue=>arrayValue===updatedTask.udtdTsk)){
+            let checkTrimmedValue = updatedTask.udtdTsk.trim();
+            if(newArray.some(arrayValue=>arrayValue===checkTrimmedValue)){
                 console.log(notification('Existing Task Ignored!'));
             }else{
                 tasksToSave.splice(newArray.indexOf(taskInquiry.tskInqry),1,updatedTask.udtdTsk);

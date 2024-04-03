@@ -52,7 +52,7 @@ let editMemo = async () => {
 let editMemoAns = await editMemo();
 while (editMemoAns) {
     let newArray = [...tasksToSave];
-    titleText = '\t Your To-Do Memorandum ';
+    titleText = '\n\t Your To-Do Memorandum ';
     async function askPriority() {
         let priorityInquiry = await inquirer.prompt({
             name: 'prtyInqry',
@@ -86,7 +86,8 @@ while (editMemoAns) {
         }
         else if (editArrayInquiry.edtInqry === 'Update task') {
             let updatedTask = await inquirer.prompt({ name: 'udtdTsk', type: 'input', message: notification('Edit Task: '), default: taskInquiry.tskInqry });
-            if (newArray.some(arrayValue => arrayValue === updatedTask.udtdTsk)) {
+            let checkTrimmedValue = updatedTask.udtdTsk.trim();
+            if (newArray.some(arrayValue => arrayValue === checkTrimmedValue)) {
                 console.log(notification('Existing Task Ignored!'));
             }
             else {
@@ -108,7 +109,7 @@ while (editMemoAns) {
                 i = tasksToSave.length;
             }
         }
-        titleText = '\t Your Updated To-Do Memorandum ';
+        titleText = '\n\t Your Updated To-Do Memorandum ';
     }
     console.log(heading(titleText));
     tasksToSave.forEach(arrayValue => console.log(answer(arrayValue)));
